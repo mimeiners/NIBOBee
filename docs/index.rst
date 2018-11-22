@@ -12,6 +12,7 @@ Willkommen zu NIBOBee's Dokumentation!
    :caption: Inhaltverzeichnis:
 
    ./Kapitel_01_Einleitung.rst
+   ./Kapitel_02_Loeten.rst
 
 
 
