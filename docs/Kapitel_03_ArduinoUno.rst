@@ -1,12 +1,10 @@
-NIBOBee - eine elektronische Biene für die Nachhaltigkeit
-=========================================================
+ArduinoUno - Die Steuereinheit des NIBOBee
+==========================================
 
 .. _Arduino Umgebung: https://www.arduino.cc/en/Main/OldSoftwareReleases
 .. _Link: https://www.roboter.cc/index.php?view=article&id=28&option=com_content&Itemid=1
 
-ArduinoUno - Die Steuereinheit des NIBOBee
-
-Einleitung: Was ist der ArduinoUno?
+Was ist der ArduinoUno?
 
 Der ArduinoUno ist ein Mikrocontroller, welcher sich frei programmieren lässt.
 Für unseren NIBOBee dient er als Steuereinheit der Motoren.
