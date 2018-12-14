@@ -8,7 +8,7 @@ Als Erstes wird die Hauptplatine des NIBObees verlötet.
 
 Tipps zum Löten findet man auf der Webseite_ des Herstellers. 
 
-Wenn man mit dem Löten vertraut ist, kann man mit der Bestückung der Platine beginnen. Die Bauanleutung_ befindet sich auf der Webseite des Herstellers. 
+Wenn man mit dem Löten vertraut ist, kann man mit der Bestückung der Platine beginnen. Die Bauanleitung_ befindet sich auf der Webseite des Herstellers. 
 
 Zuerst werden alle kleinen Platinenteile aus dem Rahmen gebrochen und laut Bauanleitung bestückt.
 Auf den Platinen stehen kleine Bauteilbezeichnungen (R1,P1 D1,...) diese Bezeichnungen, werden mit der Bauanleitung ab Seite 21 verglichen und bestückt. Die Reihenfolge der Bestückung richtet sich nach der Höhe der Bauteile. Sinnvoll ist es also mit den Widerständen zu beginnen.
