@@ -16,7 +16,7 @@ Um einen ArduinoUno programmieren zu können, bedarf es einigen Vorbereitungen:
 
 	Die Arduino 1.6.7 installieren, und sich merken, in welchen Ordner man es installiert hat.
 
-2.	Jetzt installiert man unter folgendem Link die nötigen Libraries und Treiber, um den NIBOBee zum laufen zu kriegen.
+2.	Jetzt installiert man unter folgendem Link_ die nötigen Libraries und Treiber, um den NIBOBee zum laufen zu kriegen.
 	Nicht vergessen den Installer für 64 Bit Windows (7, 8, 10) zu Installieren.
 
 	Diese Datei wird in den selben Ordner, wie die Arduino Umgebung installiert.
@@ -37,7 +37,7 @@ Um einen ArduinoUno programmieren zu können, bedarf es einigen Vorbereitungen:
 	so kann man ihn an den Computer anschließen. (nicht wundern, dass kein Port erkannt wird, es funktioniert auch so)
 	
 	Unter dem Punkt: Datei / Beispiele / NIBObee / Kalibrierung muss man den NIBObee nun kalibrieren.
-	Kalibrierung anklicken, es öffnet sich ein neues Arduino Fenster, auf das kleine Häckchen (überprüfen) klicken, 
+	Kalibrierung anklicken, es öffnet sich ein neues Arduino Fenster, auf das kleine Häkchen (überprüfen) klicken, 
 	danach auf Hochladen gehen und warten, bis sich der NIBObee neu kalibriert.
 	Die Annäherungssensoren sollten nach der Kalibrierung deutlich besser funktionieren, als vorher.
 
