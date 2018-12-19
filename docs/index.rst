@@ -14,7 +14,8 @@ Willkommen zu NIBOBee's Dokumentation!
    ./Kapitel_01_Einleitung.rst
    ./Kapitel_02_Loeten.rst
    ./Kapitel_03_ArduinoUno.rst
-   ./Kapitel_04_RaspberryPi_B+.rst
+   ./Kapitel_04_RaspberryPiB+.rst
+   ./Kapitel_05_RaspberryPi3.rst
 
 
 Indices und Tabellen

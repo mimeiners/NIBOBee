@@ -1,3 +1,3 @@
-Installtion des RaspberryPi 3
-=============================
+Installation des RaspberryPi 3
+==============================
 
