@@ -3,14 +3,16 @@ Installtion des Raspberry Pi 3 B+
 
 .. _offizieller Webseite: https://www.raspberrypi.org/downloads/raspbian/
 .. _Link: https://www.datenreise.de/raspberry-pi-kamera-inbetriebnahme/
+.. _Raspberry Pi Tutorials: https://tutorials-raspberrypi.de/raspberry-pi-luftfeuchtigkeit-temperatur-messen-dht11-dht22/
 .. _Vergleich auf Amazone: https://www.amazon.de/s/ref=nb_sb_noss_2?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords=DHT22
 .. _Informationen: https://www.elektronik-kompendium.de/public/schaerer/pullr.htm
 .. _mBlock3: http://www.mblock.cc/mblock-software/
 .. _Datenblatt: https://cdn-shop.adafruit.com/datasheets/DHT22.pdf
-.. _ Adafruit Verzeichnis: https://github.com/adafruit/Adafruit_Python_DHT.git
+.. _Adafruit Verzeichnis: https://github.com/adafruit/Adafruit_Python_DHT.git
 .. _diesem Link: https://tutorials-raspberrypi.de/raspberry-pi-ueberwachungskamera-livestream-einrichten/
 .. _folgender Anleitung: https://nerdchandise.io/blog/raspberry-pi-live-stream/
 .. _folgender Webseite: https://www.bitblokes.de/kameramodul-des-raspberry-pi-v4l-treiber-video4linux-und-motion/
+.. _DHT22 Anleitung: https://tutorials-raspberrypi.de/raspberry-pi-luftfeuchtigkeit-temperatur-messen-dht11-dht22/
 
 Zunächst einmal habe ich mich mit der unbekannten Bedienung des Raspberry Pi 3 B+ vertraut gemacht. Dazu habe ich sowohl eine kleine Einweisung von meinem Kollegen Alexander H.
 bekommen, sowie auch selbst in Erfahrung gebracht wo die grundlegendsten Einstellungen zu finden sind und welches Betriebssystem überhaupt vorliegt. Nachdem bekannt war, dass Rasbian das laufende 
@@ -19,8 +21,8 @@ Benutzeroberfläche. In beiden Fällen ist dieses Betriebssystem eine für den R
 welches Betriebssystem tatsächlich vorlag. Da nun klar war dass der R-Pi ganz einfach mit Linux Terminal-Befehlen bedient werden kann, habe ich mich direkt an die Erfüllung der ersten Aufgabe gemacht.
 
 
-Kamera Modul - Standartvariante
--------------------------------
+1. Kamera Modul - Standartvariante
+----------------------------------
 
 1 Aufgabe: Raspberry Pi Kameramodul zum laufen bringen bzw. testen wie und ob dieses funktioniert.
 
@@ -58,10 +60,10 @@ etc. angepasst werden. Durch Parameter wie zum Beispiel -vf -hf (vertikal und ho
 als normal üblich, was später durchaus nützlich sein könnte.
 
 
-Temperatur- und Feuchtigkeitssensor
------------------------------------
+2. Temperatur- und Feuchtigkeitssensor
+--------------------------------------
 
-2. Als nächste Aufgabe musste der Temperatur- und Feuchtigkeitssensor AM2302 alias DHT22 angeschlossen und getestet werden.
+Als Nächstes musste der Temperatur- und Feuchtigkeitssensor AM2302 alias DHT22 angeschlossen und getestet werden.
 
 Hierfür wurde folgender Link von `Raspberry Pi Tutorials`_ aufgesucht. Zunächst einmal habe ich alles aufmerksam durchgelesen und nachgeforscht in wie fern ich diese Anleitung benutzen kann, 
 da unser vorhandener Sensor im Gegensatz zu den Bildern nur über drei der statt vier auf den Bildern gezeigten Pins verfügte. Dabei gab es im `Vergleich auf Amazone`_ viele DHT22 Sensoren sowohl mit 
@@ -125,11 +127,16 @@ befinden wo auch das Pythonscript ist und
 
 in das Terminal eingeben um dieses auszuführen. Die (22) steht dabei für die Art des Sensors (DHT22) und die (4) für den benutzen GPIO Datenpin am Raspberry Pi. **Dabei ist der GPIO Nummer 4 nicht gleichzeitig 
 der Pin Nummer 4 sondern Pin Nummer 7**. **Das darf nicht verwechselt werden!** Sonst kann der Sensor nicht ausgewertet werden, weil der Raspberry Pi dann einen falschen Pin abfragen würde. 
-Nachdem der erste Messversuch erfolgreich war, haben wir uns Gedanken über die nächsten Schritte gemacht.
+Nachdem der erste Messversuch erfolgreich war, haben wir uns Gedanken um die nächsten Schritte gemacht.
+Dabei gibt es mehrere möglichkeiten den DHT22 anzuschließen, diese können folgender Grafik entnommen werden:
+
+.. figure:: img/pic4.png
+   :name: GPIO Schnittstelle
+   :align: center
 
 
-Verbesserung der Installation des DHT22 Sensors
------------------------------------------------
+3. Verbesserung der Installation des DHT22 Sensors
+--------------------------------------------------
 
 Als nächstes haben wir uns überlegt, dass wir die Installation des DHT22 Sensors erleichtern wollen. So habe ich ein Pythonscript geschrieben, welches die Ordner automatisch anlegt, das Script von 
 Adafruit herunterlädt, anschließend installiert und den ersten Messversuch startet. Dabei kann die Messung natürlich nur erfolgen, wenn der Sensor auch angeschlossen ist. Andernfalls wird das Script 
@@ -168,10 +175,10 @@ Im Folgenden haben wir uns wieder der Kamera gewidmet und eine Methode gesucht, 
 Mitteln konnte man zwar per Befehlseingabe Bilder oder Videos machen - und sogar Lifestreams - jedoch war nicht ersichtlich ob man mit Raspivid den Lifestream auch irgendwie ins Netzwerk übertragen 
 bekommt, um diesen auch auf anderen Geräten verfolgen zu können. Auch hier haben wir zunächst nach Ansätzen im Internet geschaut und vieles ausprobiert. Die meisten Ansätze die wir mit Alexander H. 
 ausprobiert haben, sollten angeblich mit dem Programm Motion funktioniert. Eine Beispielseite unter mehreren verschiedenen Versuchen ist unter `diesem Link`_ vorzufinden. Ich habe viele verschiedene 
-Einstellungen in der Konfigurationsdatei von Motion ausprobiert, doch alles war erfolglos und brachte immer nur maximal 1 FPS. Auch mit den vorhandenen Mittel wie „Raspivid“ funktionierte es nicht, 
+Einstellungen in der Konfigurationsdatei von Motion ausprobiert, doch alles war erfolglos und brachte immer nur maximal 1 FPS. Auch mit den vorhandenen Mittel wie Raspivid funktionierte es nicht, 
 bis wir schließlich Erfolg mit `folgender Anleitung`_ hatten. Hier konnte der Lifestream mit einem VLC-Player verfolgt werden. Das funktionierte bisher am besten, mit guter FPS und Videoqualität, 
 jedoch war sowohl auf dem Pi 2 als auch auf dem Pi 3 eine Latenz von ca. 2-3 Sekunden nicht gerade zufriedenstellend. Ich hatte noch eine weitere Idee, so habe ich ssh auf dem Pi aktiviert und hab 
-darüber auf das Terminal des Microcontrollers zugegriffen. Als Nächstes habe ich VLC ebenfalls auf meinem Computer installiert und habe den Lifestream erfolgreich auf meinem Computer empfangen, 
+darüber von meinem PC aus auf das Terminal des Microcontrollers zugegriffen. Als Nächstes habe ich VLC ebenfalls auf meinem Computer installiert und den Lifestream erfolgreich auf meinem Computer empfangen, 
 da ich mich im selben Netzwerk befand. Die Idee war diese Methode ohne die Tastatur, Maus und den HDMI-Anschluss auszuprobieren. Ich hatte gehofft das der R-Pi dadurch mehr Leistung hätte, 
 da die USB Slots mit Maus und Tastatur im Betrieb laut Datenblatt bis zu 600 Milliampere ziehen können. Ebenfalls zieht die HDMI-Schnittstelle bis zu 600 Milliampere. Mein Gedanke war, dass durch diese 
 Entlastung die Latenz gesenkt werden könnte. Doch selbst nur mit laufender Ethernet-Schnittstelle und laufendem Prozessorkern, was maximal bis zu 1,2 Ampere statt den vorherigen 2,4 Ampere ziehen sollte 
@@ -182,7 +189,87 @@ und Hindernisse - gerade beim Kurvenfahren - schneller erkannt werden können.
 5. Automatisches starten der Kamerainstallation und des Lifestreams
 -------------------------------------------------------------------
 
-Damit die Installation der Kamera schneller abläuft, habe ich auch für diese ein Pythonscript geschrieben, welches noch nicht getestet ist. Was in diesem Script auch noch fehlt, ist dass die Kamera immer 
-noch in den Konfigurationseinstellungen (sudo raspi-config) erstmals aktiviert werden muss. Dieses Problem habe ich ebenfalls womöglich behoben, indem ich auf `folgender Webseite`_ Befehle gefunden habe, 
-welche die bereits auf jeden Rasbian-System vorhandenen Treiber für die Kamera aktiviert und in den Autostart einträgt, damit diese bei einem Neustart automatisch initialisiert werden. Dies gilt ebenso 
-im späteren Verlauf zu testen, ob es auch funktioniert. Der VLC Player wird hierbei, falls nicht bereits vorhaben - was standardmäßig sein sollte -, ebenfalls installiert.
+Damit die Installation der Kamera schneller abläuft, habe ich auch für diese ein Pythonscript geschrieben. Da die Kamara immer in den Konfigurationseinstellungen (sudo raspi-config) anktiviert werden muss,
+habe ich eine Lösung auf `folgender Webseite`_ Befehle gefunden, wodurch die bereits auf jeden Rasbian-System vorhandenen Treiber für die Kamera aktiviert und in den Autostart eingetragen werden, 
+damit diese bei einem Neustart automatisch initialisiert werden und die Kamera erkannt wird. Dies gilt ebenso im späteren Verlauf zu testen, ob es auch funktioniert. Der VLC Player wird hierbei, falls nicht 
+bereits vorhaben - was standardmäßig sein sollte -, ebenfalls installiert. Das engültige Ziel ist es, dass wenn der Raspberry Pi gestartet wird, der Lifestream vollautomatisch beginnt, sodass der 
+Lifestream sich unkompliziert auf einem PC öffnen lässt, dabei muss sich der PC im selben Netzwerk befinden.
+
+
+Was geschieht als nächstes?
+---------------------------
+
+Sobald das Script für die Kamerainstallation getestet wurde und funktioniert, werde ich die Installationsscripte zusammenführen, sodass nur ein Script ausgeführt werden muss um alle für dieses 
+Projekt benötigten Programme und Funktionen zu installieren. Das Starten des Lifestream auf den Computer sowie das Durchführung der Messungen kann ebenfalls simple automatisiert werden. Wie in der 
+`DHT22 Anleitung`_ bereits erwähnt ist, können die Messungen sogar dauerhaft geloggt werden. Somit liesse sich auch eine Grafik erstellen, auf der Messungen in bestimmten Zeitabständen einen Verlauf abbilden. 
+Ob dies sinnvoll wäre, müsste beim nächsten Termin besprochen werden.
+Im Vordergrund steht jedoch, dass die Latenz des Lifestreams minimiert werden kann. Diese Aufgaben können natürlich auch aufgeteilt werden.
+
+
+Die erstellen Pythonscripte
+---------------------------
+
+Dies ist das Script, welches Updates durchführt, den DHT22 Sensor installiert und testet.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- #!/usr/bin/python
+- # coding: utf8
+- 
+- # Updates checken und installieren:
+- import os
+- print os.system('sudo apt-get --assume-yes update');
+- print os.system('sudo apt-get --assume-yes upgrade');
+- print os.system('sudo apt-get --assume-yes autoremove');
+- 
+- # Zunaechst werden einige Packete installiert:
+- print os.system('sudo apt-get --assume-yes install build-essential python-dev python-openssl git');
+- 
+- # Verzeichnis fuer die Bibliotheken wird erstellt und aufgesucht:
+- print os.system('mkdir /home/pi/Sensoren-Temp-Feucht');
+- print os.chdir('/home/pi/Sensoren-Temp-Feucht');
+- 
+- # Bibliothek fuer die Sensoren wird geladen und eine Phyton Bibliothek angelegt:
+- print os.system('git clone https://github.com/adafruit/Adafruit_Python_DHT.git');
+- print os.chdir('/home/pi/Sensoren-Temp-Feucht/Adafruit_Python_DHT');
+- print os.system('sudo python setup.py install');
+- 
+- # In den Ordner "examples" wechseln, welcher Bestandteil der
+- #herruntergeladenen Bibliothek ist:
+- print os.chdir('/home/pi/Sensoren-Temp-Feucht/Adafruit_Python_DHT/examples');
+- 
+- # Sofern man sich nun in dem Verzeichnis /home/pi/Documents/Sensoren-Temp-Feucht/
+- # befindet und der Sensor nach Anleitung angeschlossen ist, kann mit dem
+- #folgenden Befehl die Temperatur und die Feuchtigkeit gemessen werden:
+- 	#sudo ./AdafruitDHT.py 22 4
+- # Hierbei steht die "22" fuer das Sensormodel DHT22 und die "4" fuer
+- #GPIO Nummer 4. Wird ein anderer Sensor verwendet muss die Zahl "22"
+- #dementsprechen angepasst werden, dasselbe betrifft auch die GPIO Schnittstelle.
+- 
+- # Im Folgenden wird die erste Testmessung auch direkt durchgefuehrt,
+- # sofern der Sensor richtig angeschlossen ist:
+- print os.system('./AdafruitDHT.py 22 4');
+- 
+- # Sollten weitere Messungen durchgefuehrt werden, muss das andere Script
+- #Namens messung.py ausgefuehrt werden. Dabei wird das richtige Verzeichnis
+- #automatisch aufgesucht.
+
+
+Mit folgendem Script können weitere Messungen durchgeführt werden, unabhängig davon in welchem Verzeichnis man sich gerade befindet.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- #!/usr/bin/python
+- # coding: utf8
+- 
+- # Hier wird das fier die Messung benoetigte Verzeichnis von Adafruit aufgesucht:
+- import os
+- print os.chdir('/home/pi/Sensoren-Temp-Feucht/Adafruit_Python_DHT/examples');
+- 
+- # Und andschliessend wird das sich darin befindende, vorher herruntergelade,
+- # Python-Script von Adafruit ausgefuehrt, womit die Abfrage des Sensors
+- #DHT22 erfolgt.
+- import os.system('./AdafruitDHT.py 22 4');
+- 
+- # Hierbei steht die "22" fuer das Sensormodel DHT22 und die "4" fuer
+- #GPIO Nummer 4. Wird ein anderer Sensor verwendet muss die Zahl "22"
+- #dementsprechen angepasst werden. Dasselbe betrifft auch die GPIO Schnittstelle.
+
