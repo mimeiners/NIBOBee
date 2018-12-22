@@ -12,11 +12,7 @@ Installtion des Raspberry Pi 3 B+
 .. _folgender Anleitung: https://nerdchandise.io/blog/raspberry-pi-live-stream/
 .. _folgender Webseite: https://www.bitblokes.de/kameramodul-des-raspberry-pi-v4l-treiber-video4linux-und-motion/
 
-Zunächst einmal habe ich mich mit der unbekannten Bedienung des Raspberry Pi 3 B+ vertraut gemacht. Dazu habe ich sowohl eine kleine Einweisung von meinem Kollegen Alexander H.
-bekommen, sowie auch selbst in Erfahrung gebracht wo die grundlegendsten Einstellungen zu finden sind und welches Betriebssystem überhaupt vorliegt. Nachdem bekannt war, dass Rasbian das laufende 
-Betriebssystem auf dem R-Pi ist, bin ich zuerst auf deren 'offizieller Webseite'_ gewesen und habe gesehen, dass es im wesentlichen nur zwei Unterschiede gibt. Es gibt Rasbian mit und ohne grafischer 
-Benutzeroberfläche. In beiden Fällen ist dieses Betriebssystem eine für den Raspberry Pi angepasste Linux-Distribution. Da mein R-Pi schon an einem Bildschirm angeschlossen war, hat es sich erschlossen 
-welches Betriebssystem tatsächlich vorlag. Da nun klar war dass der R-Pi ganz einfach mit Linux Terminal-Befehlen bedient werden kann, habe ich mich direkt an die Erfüllung der ersten Aufgabe gemacht.
+Zunächst einmal habe ich mich mit der unbekannten Bedienung des Raspberry Pi 3 B+ vertraut gemacht. Dazu habe ich sowohl eine kleine Einweisung von meinem Kollegen Alexander H. bekommen, sowie auch selbst in Erfahrung gebracht wo die grundlegendsten Einstellungen zu finden sind und welches Betriebssystem überhaupt vorliegt. Nachdem bekannt war, dass Rasbian das laufende  Betriebssystem auf dem R-Pi ist, bin ich zuerst auf deren `offizieller Webseite`_ gewesen und habe gesehen, dass es im wesentlichen nur zwei Unterschiede gibt. Es gibt Rasbian mit und ohne grafischer Benutzeroberfläche. In beiden Fällen ist dieses Betriebssystem eine für den Raspberry Pi angepasste Linux-Distribution. Da mein R-Pi schon an einem Bildschirm angeschlossen war, hat es sich erschlossen welches Betriebssystem tatsächlich vorlag. Da nun klar war dass der R-Pi ganz einfach mit Linux Terminal-Befehlen bedient werden kann, habe ich mich direkt an die Erfüllung der ersten Aufgabe gemacht.
 
 
 Kamera Modul - Standartvariante
@@ -24,8 +20,7 @@ Kamera Modul - Standartvariante
 
 1 Aufgabe: Raspberry Pi Kameramodul zum laufen bringen bzw. testen wie und ob dieses funktioniert.
 
-Dazu habe ich zunächst im Internet danach gesucht, ob man die Kamera nicht mit den vorhandenen Bordmitteln zum laufen gebracht werden kann, denn diese war schließlich für den R-Pi extra konstruiert 
-worden und hatte eine dafür angepasste Schnittstelle. Daraufhin hat man direkt sehr schnell sehr viele Lösungen bekommen. Es war möglich die Kamera vorsichtig im laufenden Betrieb anzuschließen und zu 
+Dazu habe ich zunächst im Internet danach gesucht, ob man die Kamera nicht mit den vorhandenen Bordmitteln zum laufen gebracht werden kann, denn diese war schließlich für den R-Pi extra konstruiert worden und hatte eine dafür angepasste Schnittstelle. Daraufhin hat man direkt sehr schnell sehr viele Lösungen bekommen. Es war möglich die Kamera vorsichtig im laufenden Betrieb anzuschließen und zu 
 aktivieren. Hierbei entschloss ich mich das Gerät auf jeden Fall auszuschalten und von der Stromversorgung zu lösen um mögliche Schäden oder Fehlfunktionen zu verhindern. Nachdem die Kamera fachgerecht 
 angeschlossen war, wurde der R-Pi wieder gestartet. Danach wurde das Konfigurationstool des R-Pi durch den Befehl 
 
