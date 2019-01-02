@@ -4,7 +4,7 @@ ATMEL ATMega 16A - Die Steuereinheit des NIBOBee
 .. _NIBOBee: http://www.nicai-systems.com/de/nibobee
 .. _Arduino Umgebung: https://www.arduino.cc/en/Main/OldSoftwareReleases
 .. _Link: https://www.roboter.cc/index.php?view=article&id=28&option=com_content&Itemid=1
-
+.. _Video: https://www.youtube.com/watch?v=V8gdC8kDm24&feature=youtu.be
 Was ist der ATMega 16A?
 -----------------------
 
@@ -53,11 +53,12 @@ Um einen ATMega programmieren zu können, bedarf es einiger Vorbereitungen:
 Erste Fahrversuche des NIBOBee
 ------------------------------
 
-(Beispiel zum Einbindung von Videos von Youtube.)
+Jetzt kann man mit der Arduino Umgebung herumspielen, um den NIBOBee in der Gegend herum fahren zu lassen.
+Falls der NIBOBee nicht geradeaus fährt, muss man entweder den linken oder rechten Motor schneller drehen lassen.
+In diesem Video_ fährt der linke Motor mit dem Speed 400, der rechte mit 500.
 
 .. raw:: html
         
-        <iframe width="480" height="320" src="https://youtube.com/embed/dPjwLGJaKp4" frameborder="0" allowfullscreen></iframe>
+        <iframe width="480" height="320" src="https://www.youtube.com/watch?v=V8gdC8kDm24&feature=youtu.be" frameborder="0" allowfullscreen></iframe>
         
         <p><em>Er hat ein Händchen</em></p>
-
