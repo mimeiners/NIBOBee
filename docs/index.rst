@@ -16,6 +16,7 @@ Willkommen zu NIBOBee's Dokumentation!
    ./Kapitel_03_ArduinoUno.rst
    ./Kapitel_04_RaspberryPi_B+.rst
    ./Kapitel_05_RaspberryPi3.rst
+   ./Kapitel_06_Rucksackplatine.rst
 
 
 Indices und Tabellen
