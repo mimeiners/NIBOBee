@@ -93,6 +93,7 @@ math_eqref_format = "Gl. {number}"
 #
 # html_theme = 'alabaster'
 html_theme = 'bizstyle'
+# html_theme = 'scipy_lectures'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -103,7 +104,21 @@ html_theme = 'bizstyle'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = []
+# html_static_path = ['themes']
+
+# Add any paths that contain custom themes here, relative to this directory.
+# html_theme_path = ['themes']
+
+# The style sheet to use for HTML and HTML Help pages. A file of that name
+# must exist either in Sphinx' static/ path, or in one of the custom paths
+# given in html_static_path.
+#html_style = 'default.css'
+
+# html_theme_options = {
+#    # 'nosidebar': 'true',
+#    'footerbgcolor': '#000000',
+#    'relbarbgcolor': '#000000',
+# }
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
