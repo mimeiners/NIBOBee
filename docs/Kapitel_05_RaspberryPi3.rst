@@ -20,8 +20,7 @@ Einweisung von meinem Kollegen Alexander H.
 bekommen, sowie auch selbst in Erfahrung gebracht wo die
 grundlegendsten Einstellungen zu finden sind und welches
 Betriebssystem überhaupt vorliegt. Nachdem bekannt war, dass Rasbian
-das laufende  
-Betriebssystem auf dem R-Pi ist, bin ich zuerst auf deren `offizieller
+das laufende Betriebssystem auf dem R-Pi ist, bin ich zuerst auf deren `offizieller
 Webseite`_ gewesen und habe gesehen, dass es im wesentlichen nur zwei
 Unterschiede gibt. Es gibt Rasbian mit und ohne grafischer  
 Benutzeroberfläche. In beiden Fällen ist dieses Betriebssystem eine
@@ -44,25 +43,18 @@ denn diese war schließlich für den R-Pi extra konstruiert
 worden und hatte eine dafür angepasste Schnittstelle (CSI). Daraufhin
 hat man direkt sehr schnell sehr viele Lösungen bekommen. Es war
 möglich die Kamera vorsichtig im laufenden Betrieb anzuschließen und
-zu  
-aktivieren. Hierbei entschloss ich mich das Gerät auf jeden Fall
+zu aktivieren. Hierbei entschloss ich mich das Gerät auf jeden Fall
 auszuschalten und von der Stromversorgung zu lösen um mögliche Schäden
 oder Fehlfunktionen zu verhindern. Nachdem die Kamera fachgerecht  
 angeschlossen war, wurde der R-Pi wieder gestartet. Danach wurde das
-Konfigurationstool des R-Pi durch den Befehl  
-
-- sudo raspi-config 
-
+Konfigurationstool des R-Pi durch den Befehl **sudo raspi-config** 
 aufgesucht um die Kamera unter dem Punkt 5 - “Interfaving Options“ und
 dann P1 - „Camera“ zu aktivieren. Dabei war die Anleitung die man
 befolgt hat etwas veraltet und das Konfigurationstool war etwas  
 anders aufgebaut, sodass die Untermenüs etwas in den Zeilen vertauscht
 waren. Eine aktuelle Anleitung, ist unter diesem `Link`_
 vorzufinden. Dort habe ich auch die nächsten nötigen Befehle kopiert
-um die Kamera zu testen. Mit dem Befehl 
-
-- raspistill -o testfoto.jpg 
-
+um die Kamera zu testen. Mit dem Befehl **raspistill -o testfoto.jpg** 
 habe ich zunächst ein Testbild gemacht, welches auch gelungen
 ist. Dieses ist automatisch ins /home Verzeichnis gespeichert worden.  
 
@@ -71,10 +63,7 @@ ist. Dieses ist automatisch ins /home Verzeichnis gespeichert worden.
    :align: center
 
 Ob die Kamera auch Videos machen kann und wie gut die Qualität und FPS
-tatsächlich ist, wurde direkt im Anschluss mit dem Befehl 
-
-- raspistill -o testvideo.jpg 
-
+tatsächlich ist, wurde direkt im Anschluss mit dem Befehl **raspistill -o testvideo.jpg** 
 geprüft. Auch dieses Vorgehen war erfolgreich und wurde ebenfalls
 automatisch im /home Verzeichnis gespeichert.  
 
@@ -191,21 +180,14 @@ Verzeichnis`_ von Github heruntergeladen und das setup.py wie
 beschrieben installiert wurde. Durch die Installation ist dieses
 Script einfach nur das Pythonverzeichnis aufgenommen worden und kann
 zum Beispiel in einem anderen Pythonscript durch die Funktion  
-
-- input 
-
-eingefügt bzw. eingebunden werden. Nun wurde die Funktionalität des
+**input** eingefügt bzw. eingebunden werden. Nun wurde die Funktionalität des
 Sensors in der aufgebauten Schaltung durch das Ausführen des
 Pythonscripts überprüft. Dazu muss man sich im selben Verzeichnis  
-befinden wo auch das Pythonscript ist und 
-
-- ./AdafruitDHT.py 22 4 
-
+befinden wo auch das Pythonscript ist und **./AdafruitDHT.py 22 4**
 in das Terminal eingeben um dieses auszuführen. Die (22) steht dabei
 für die Art des Sensors (DHT22) und die (4) für den benutzen GPIO
 Datenpin am Raspberry Pi. **Dabei ist der GPIO Nummer 4 nicht
-gleichzeitig   
-der Pin Nummer 4 sondern Pin Nummer 7**. **Das darf nicht verwechselt
+gleichzeitig der Pin Nummer 4 sondern Pin Nummer 7**. **Das darf nicht verwechselt
 werden!** Sonst kann der Sensor nicht ausgewertet werden, weil der
 Raspberry Pi dann einen falschen Pin abfragen würde.  
 Nachdem der erste Messversuch erfolgreich war, haben wir uns Gedanken
@@ -245,17 +227,13 @@ Fehlermeldungen, aufgrund von fehlenden Konfigurationseinstellungen.
 Dabei meckert das Terminal zwar mehrfach, dass diese Einstellungen vorgenommen werden sollen, doch das Script wird trotzdem problemlos 
 bis zum Ende durchgeführt. Wie man diese Einstellungen vornimmt werde ich im späteren Verlauf dokumentieren. Was mich jedoch nicht ganz zufriedengestellt hat, ist dass bei einem blanken System bei den 
 ersten Script-Zeilen erstmals Updates durchgeführt werden und dies teilweise ganz schön lange dauert. Dabei muss der Vorgang ganz oft mit „yes“ bestätigt werden, um etwas zu installieren, 
-somit hab ich ein Zusatzparameter 
-
-- --assume-yes 
-
-in die Befehle eingefügt (zum Beispiel sudo apt-get –assume-yes install …) damit alle Anfragen ebenfalls automatisch mit „yes“ bestätigt werden. Hiernach hab ich das ganze erneut mit vorher vorgenommenen 
-Konfigurationseinstellungen getestet und alles funktionierte ohne irgendwelches Gemecker und vollautomatisch, wonach auch die erste Messung erfolgreich durchgeführt wurde. Klar wäre es vielleicht 
-einfacher gewesen mit einem Shell- oder Bashscript zu arbeiten, da jedoch so ziemlich jede Linux-Distribution über Python (sogar beide, 2 und 3) verfügt und das Script von Adafruit auch in Python 
-geschrieben ist, habe ich mich entschlossen das Script ebenfalls als Python zu erstellen um es eventuell besser einbinden zu können und auch um die Python Programmiersprache kennenzulernen. 
-Dazu habe ich das Buch mit der ISBN-978-3-658-20704-5 als PDF benutzt, um mich mit der Programmiersprache etwas vertraut zu machen. In den Scripts habe ich ebenfalls vor den entsprechenden Befehlen, 
-welche ausgeführt werden sollen, beschrieben was jeweils im Folgenden geschieht bzw. gemacht wird. Diese Zeilen wurden dann mit einem „#“ wie üblich ausgeschlossen, damit das Script diese Zeilen nicht 
-versucht auszuführen.
+somit hab ich ein Zusatzparameter **--assume-yes** in die Befehle eingefügt (zum Beispiel sudo apt-get –assume-yes install …) damit alle Anfragen ebenfalls automatisch mit „yes“ bestätigt werden. 
+Hiernach hab ich das ganze erneut mit vorher vorgenommenen Konfigurationseinstellungen getestet und alles funktionierte ohne irgendwelches Gemecker und vollautomatisch, wonach auch die erste Messung 
+erfolgreich durchgeführt wurde. Klar wäre es vielleicht einfacher gewesen mit einem Shell- oder Bashscript zu arbeiten, da jedoch so ziemlich jede Linux-Distribution über Python (sogar beide, 2 und 3) 
+verfügt und das Script von Adafruit auch in Python geschrieben ist, habe ich mich entschlossen das Script ebenfalls als Python zu erstellen um es eventuell besser einbinden zu können und auch um die Python 
+Programmiersprache kennenzulernen. Dazu habe ich das Buch mit der ISBN-978-3-658-20704-5 als PDF benutzt, um mich mit der Programmiersprache etwas vertraut zu machen. In den Scripts habe ich ebenfalls vor 
+den entsprechenden Befehlen, welche ausgeführt werden sollen, beschrieben was jeweils im Folgenden geschieht bzw. gemacht wird. Diese Zeilen wurden dann mit einem „#“ wie üblich ausgeschlossen, damit das 
+Script diese Zeilen nicht versucht auszuführen.
 
 
 Lifestream der Kamera
@@ -279,7 +257,7 @@ Entlastung die Latenz gesenkt werden könnte. Doch selbst nur mit laufender Ethe
 und Hindernisse - gerade beim Kurvenfahren - schneller erkannt werden können.
 
 
-Automatisches starten der Kamerainstallation und des Lifestreams
+Automatisches Starten der Kamerainstallation und des Lifestreams
 ----------------------------------------------------------------
 
 Damit die Installation der Kamera schneller abläuft, habe ich auch für diese ein Pythonscript geschrieben. Da die Kamara immer in den Konfigurationseinstellungen (sudo raspi-config) anktiviert werden muss,
@@ -299,8 +277,8 @@ Ob dies sinnvoll wäre, müsste beim nächsten Termin besprochen werden.
 Im Vordergrund steht jedoch, dass die Latenz des Lifestreams minimiert werden kann. Diese Aufgaben können natürlich auch aufgeteilt werden.
 
 
-Die erstellen Pythonscripte
----------------------------
+Die fertigen Pythonscripte
+--------------------------
 
 Dies ist das Script, welches Updates durchführt, den DHT22 Sensor installiert und testet.
 
