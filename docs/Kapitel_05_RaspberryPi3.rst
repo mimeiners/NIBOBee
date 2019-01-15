@@ -136,8 +136,7 @@ von selbst aufleuchtet obwohl der Taster nicht gedrückt ist.
 Nun war klar dass es selbst bei offenem Taster zu zufälligen
 Ergebnissen kommen konnte, da der Eingang anscheinend bereits eine
 eigene Spannung besitzt und dieser dadurch keinen eindeutig
-definierten  
-Zustand hat, welcher bei offenem Taster durch anliegende 0V auf das
+definierten Zustand hat, welcher bei offenem Taster durch anliegende 0V auf das
 logische LOW gesetzt sein müsste. Durch den Pull-Down Widerstand wird
 genau dieser Zustand erreicht, da der Eingang auf 0V  
 herunterzogen wird. 
@@ -227,7 +226,7 @@ Fehlermeldungen, aufgrund von fehlenden Konfigurationseinstellungen.
 Dabei meckert das Terminal zwar mehrfach, dass diese Einstellungen vorgenommen werden sollen, doch das Script wird trotzdem problemlos 
 bis zum Ende durchgeführt. Wie man diese Einstellungen vornimmt werde ich im späteren Verlauf dokumentieren. Was mich jedoch nicht ganz zufriedengestellt hat, ist dass bei einem blanken System bei den 
 ersten Script-Zeilen erstmals Updates durchgeführt werden und dies teilweise ganz schön lange dauert. Dabei muss der Vorgang ganz oft mit „yes“ bestätigt werden, um etwas zu installieren, 
-somit hab ich ein Zusatzparameter **--assume-yes** in die Befehle eingefügt (zum Beispiel sudo apt-get –assume-yes install …) damit alle Anfragen ebenfalls automatisch mit „yes“ bestätigt werden. 
+somit hab ich ein Zusatzparameter **--assume-yes** in die Befehle eingefügt (zum Beispiel sudo apt-get --assume-yes install …) damit alle Anfragen ebenfalls automatisch mit „yes“ bestätigt werden. 
 Hiernach hab ich das ganze erneut mit vorher vorgenommenen Konfigurationseinstellungen getestet und alles funktionierte ohne irgendwelches Gemecker und vollautomatisch, wonach auch die erste Messung 
 erfolgreich durchgeführt wurde. Klar wäre es vielleicht einfacher gewesen mit einem Shell- oder Bashscript zu arbeiten, da jedoch so ziemlich jede Linux-Distribution über Python (sogar beide, 2 und 3) 
 verfügt und das Script von Adafruit auch in Python geschrieben ist, habe ich mich entschlossen das Script ebenfalls als Python zu erstellen um es eventuell besser einbinden zu können und auch um die Python 
