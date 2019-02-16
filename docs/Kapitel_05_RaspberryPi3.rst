@@ -349,3 +349,135 @@ unabhängig davon in welchem Verzeichnis man sich gerade befindet.
    # dementsprechen angepasst werden. Dasselbe betrifft auch die GPIO Schnittstelle.
 
 
+Automatisierung der Kamerainstallation
+--------------------------------------
+
+Nachdem wir die Kamera zum laufen gebracht hatten, haben wir leider vergebens versucht die Zeitverzögerung des Lifestreams zu minimieren.
+Danach haben wir uns erstmal der Automatisierung der Kamerainstallation gewidmet. Dabei war die größte Herrausforderung, dass ein Eintrag in
+eine Textdatei vorgenommen werden musste. Außerdem musste die Datei mit root geöffnet werden.
+Zunächst einmal habe ich folgende Methode für den Eintrag ausprobiert:
+
+.. code:: python
+
+   #Nun wird in die Datei /etc/apt/sources.list ein Eintrag vorgenommen um weitere Treiber zu installieren
+
+   print os.chdir('/etc/apt');
+
+   with open("sorces.list", "r") as f_handle:
+	a = f_handle.readlines()
+
+   a[2] = "#Das ist damit der v4l2 Treiber beim Bootvorgang automatisch geladen wird\n"
+   a[3] = "deb http://www.linux-projects.org/listing/uv4l_repo/raspbian/ wheezy main\n"
+
+   with open("sources.list", "w") as f_handle:
+	f_handle.writelines(a)
+
+Dies ist natürlich nur ein Ausschnitt gewesen, davor wurden noch Funktionen importiert (import os z.B.) und Treiber etc. installiert.
+Bei dieser Version funktionierte es zwar die beiden Zeilen a[2] und a[3] in die Datei einzufügen, allerdings wurden die Zeilen 2 und 3
+somit einfach überschrieben.
+
+Hiernach habe ich nach weiteren Methoden gesucht und daraus das folgende, bis auf einen Bereich, funktionierende Script erstellt:
+
+.. code:: python
+
+   #!/usr/bin/python
+   #coding: utf8
+
+   import os
+   import sys
+
+   #Zuerst wird geprüft ob dieses Script als root ausgefuehrt wird, wenn nicht, wird das Script
+   #geschlossen und mit root erneut ausgeführt. Beim Raspberry funktioniert es ganz gut,
+   #da die Ausführung als root nicht mit einer Passphrase bestätigt werden muss.
+
+   #if os.getuid()
+   #        os.system("id; sudo " + sys.argv[0])
+   #        sys.exit(0)
+
+   #print("sources.list" , os.getuid() )
+
+
+   #Hier wird in das Verzeichnis /etc/apt gewechselt, in welchem sich die Datei sources.list befindet.
+
+   print os.chdir('/etc/apt');
+
+
+   #Hier werden an das Ende der Datei sources.list in dem Verzeichnis /etc/apt zwei Zeilen eingefügt,
+   #dabei werden keine Zeilen überschrieben, sondern neue Zeilen an das Ende eingefügt bzw. angehängt.
+
+   sdatei = open('sources.list', "rw");
+   a = sdatei.readlines()
+
+   sdatei.close()
+
+   a.append('\n#Das ist damit der v4l2-Treiber beim Boot des Betriebssystems geladen wird\ndeb http://www.linux-projects.org/listing/uv4l_repo/raspbian/ wheezy main\n');
+   sdatei = open('sources.list','w');
+   sdatei.write("".join(a));
+
+   sdatei.close()
+
+   #Update
+   print os.system('sudo apt-get update');
+   print os.system('sudo apt-get --assume-yes upgrade');
+   print os.system('sudo apt-get --assume-yes autoremove');
+
+
+   #Installation des VLC-Players, welcher für den Lifestream benötigt wird
+
+   print os.system('sudo apt-get --assume-yes install vlc');
+
+
+   #Nun werden Treiber installiert, welche auf Rasbian eigentlich standartmässig vorhanden sein sollten
+   print os.system('sudo apt-get --assume-yes install v4l-utils');
+   print os.system('sudo modprobe v4l2_common');
+   print os.system('sudo modprobe bcm2835-v4l2');
+
+
+   #Test:
+
+   print os.system('lsmod');
+
+   #..nun sollte bei unveränderten Terminaleinstellungen in gelber Schrift /dev/video0 stehen,
+   #wenn die Kamera richtig erkannt wird. Die Kamera kann auch ohne funktionieren, für das weitere
+   #Vorgehen ist es jedoch wichtig, dass der Treiber richtig funktioniert, da es sonst zufällig mal
+   #funktionieren kann und mal nicht.
+
+
+   #Nun werden weitere benötigte Programme, etc. installiert:
+
+   print os.system('sudo wget --assume-yes  http://www.linux-projects.org/listing/uv4l_repo/lrkey.asc');
+   print os.system('sudo apt-key --assume-yes add ./lrkey.asc');
+
+   print os.system('sudo apt-get update');
+
+   print os.system('apt-get --assume-yes install uv4l');
+   print os.system('apt-get --assume-yes install uv4l-raspicam');
+   print os.system('apt-get --assume-yes install uv4l-raspicam-extras');
+
+
+   #Als Letztes werden nochmals Updates abgefragt und gegebenenfalls installiert,
+   #danach wird der Computer bzw. der Raspberry neugestartet.
+
+   print os.system('sudo apt-get update');
+   print os.system('sudo apt-get --assume-yes upgrade');
+   print os.system('sudo apt-get --assume-yes autoremove');
+
+   print os.system('sudo shutdown -r now');
+
+
+Hier funktionierte der Eintrag wunderbar, die zwei gewünschten Zeilen wurden einfach immer direkt an das Ender
+der Textdatei in zwei neu erstellte Zeilen eingefügt. Somit wurde nichts überschrieben, was auch das Ziel war.
+Ein Problem gab es allerdings, direkt am Anfang:
+
+.. code:: python
+
+   if os.getuid()
+           os.system("id; sudo " + sys.argv[0])
+           sys.exit(0)
+
+   print("sources.list" , os.getuid() )
+
+Dieser Bereich sollte dafür sorgen, dass geprüft wird, ob die Datei mit root geöffnet wurde,
+bzw. das Script mit root ausgeführt wird. Wenn dies nicht der Fall ist, sollte das Script
+mit root von Anfang an gestartet werden. Dies ist notwendig, damit ein Eintrag in der Datei sorces.list
+(die zwei oben erwähnten Zeilen) vorgenommen werden kann, da diese Datei normalerweise root Zugriffsrechte benötigt.
