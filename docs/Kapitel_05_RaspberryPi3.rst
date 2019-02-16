@@ -396,6 +396,7 @@ Hiernach habe ich nach weiteren Methoden gesucht und daraus das folgende, bis au
 
    #print("sources.list" , os.getuid() )
 
+   sys.exit(0)
 
    #Hier wird in das Verzeichnis /etc/apt gewechselt, in welchem sich die Datei sources.list befindet.
 
@@ -467,7 +468,7 @@ Hiernach habe ich nach weiteren Methoden gesucht und daraus das folgende, bis au
 
 Hier funktionierte der Eintrag wunderbar, die zwei gewünschten Zeilen wurden einfach immer direkt an das Ender
 der Textdatei in zwei neu erstellte Zeilen eingefügt. Somit wurde nichts überschrieben, was auch das Ziel war.
-Ein Problem gab es allerdings, direkt am Anfang:
+Ein Problem gibt es allerdings, direkt am Anfang:
 
 .. code:: python
 
@@ -476,8 +477,10 @@ Ein Problem gab es allerdings, direkt am Anfang:
            sys.exit(0)
 
    print("sources.list" , os.getuid() )
+   
+   sys.exit(0)
 
 Dieser Bereich sollte dafür sorgen, dass geprüft wird, ob die Datei mit root geöffnet wurde,
 bzw. das Script mit root ausgeführt wird. Wenn dies nicht der Fall ist, sollte das Script
-mit root von Anfang an gestartet werden. Dies ist notwendig, damit ein Eintrag in der Datei sorces.list
-(die zwei oben erwähnten Zeilen) vorgenommen werden kann, da diese Datei normalerweise root Zugriffsrechte benötigt.
+mit root von Anfang an gestartet werden. Dies ist notwendig, damit ein Eintrag in der Datei sorces.list 
+(die zwei oben erwähnten Zeilen) vorgenommen werden kann, da diese Datei normalerweise root Zugriffsrechte benötigt. Leider scheint es so noch im gesamten Script Probleme mit diesem Bereich zu geben, wobei es einzeln vor Wochen noch funktionierte.
