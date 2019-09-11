@@ -26,5 +26,4 @@ zu versuchen sie für beide Themengebiete zu begeistern.
 
 ## Videobeitrag
 [StahlTV](https://www.stahltv.de/themen/corporate_social_responsibility/vordenker-projekt_in_der_hochschule_bremen/)
-
-<iframe width="783" height="440" src="https://www.youtube.com/embed/TjsIBCnP00w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Video](https://youtu.be/TjsIBCnP00w)
