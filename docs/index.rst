@@ -3,8 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Willkommen zu NIBOBee's Dokumentation!
-======================================
+   
+NIBOBee - eine elektronische Biene für die Nachhaltigkeit
+=========================================================
 
 .. toctree::
    :name: mastertoc
@@ -18,10 +19,3 @@ Willkommen zu NIBOBee's Dokumentation!
    ./Kapitel_05_RaspberryPi3.rst
    ./Kapitel_06_Rucksackplatine.rst
 
-
-Indices und Tabellen
-====================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
