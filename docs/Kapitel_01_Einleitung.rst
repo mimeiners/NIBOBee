@@ -167,4 +167,4 @@ Schüler auf die Pflegebedürftigkeit des Gartens hinweisen.
 
 Referenzen
 ----------
-.. bibliography:: vordenker.bib
+.. bibliography:: refs.bib
