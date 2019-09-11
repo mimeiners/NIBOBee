@@ -25,5 +25,6 @@ technischen Hilfsmittel zur Förderung der Nachhaltigkeit aufzuzeigen und
 zu versuchen sie für beide Themengebiete zu begeistern.
 
 ## Videobeitrag
-[StahlTV](https://www.stahltv.de/themen/corporate_social_responsibility/vordenker-projekt_in_der_hochschule_bremen/)
-[Video](https://youtu.be/TjsIBCnP00w)
+- [StahlTV Seite](https://www.stahltv.de/themen/corporate_social_responsibility/vordenker-projekt_in_der_hochschule_bremen/)
+
+- [Video-Link](https://youtu.be/TjsIBCnP00w)
