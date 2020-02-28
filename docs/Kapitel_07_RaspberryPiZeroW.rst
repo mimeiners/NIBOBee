@@ -58,7 +58,7 @@ Dank identischer Pinbelegung lässt sich der Temperatur- und Feuchtigkeitssensor
 
 Installation der Kamera
 -----------------------
-Die Kamera wird über die auf der Platine verbaute Kameraschnittstelle mithilfe eines Flachbandkabels verbunden und nimmt somit keinen USB-Anschluss in Anspruch. Da die Kameraschnittstelle des Raspberry Pi 3B+ sich von der des Pi Zero in der Breite unterscheidet, mussten wir zuerst ein passendes Verbindungskabel kaufen. Danach haben nach `dieser Anleitung <https://www.datenreise.de/raspberry-pi-ueberwachungskamera-livestream/>`_ die Funktionalität der Kamera getestet. Auch hier konnten keine Unterschiede zum Raspberry Pi 3B+ festgestellt werden.
+Die Kamera wird über die auf der Platine verbaute Kameraschnittstelle mithilfe eines Flachbandkabels verbunden und nimmt somit keinen USB-Anschluss in Anspruch. Da die Kameraschnittstelle des Raspberry Pi 3B+ sich von der des Pi Zero in der Breite unterscheidet, mussten wir zuerst ein passendes Verbindungskabel kaufen. Danach haben wir nach `dieser Anleitung <https://www.datenreise.de/raspberry-pi-ueberwachungskamera-livestream/>`_ die Funktionalität der Kamera getestet. Auch hier konnten keine Unterschiede zum Raspberry Pi 3B+ festgestellt werden.
 
 Livestream mit dem Raspberry Pi Zero W
 --------------------------------------
