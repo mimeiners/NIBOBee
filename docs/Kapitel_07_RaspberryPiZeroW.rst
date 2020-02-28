@@ -9,7 +9,7 @@ Raspberry Pi Zero W
 Das Ziel
 --------
 
-Das Ziel dieses Prokjekts ist es herauszufinden, ob sich der Raspberry Pi 3B+ auf der NIBOBee durch einen Raspberry Pi Zero ersetzen lässt. Für den Vergleich haben wir einen Raspberry Pi Zero W verwendet. Das „W“ bezieht sich dabei auf das verbaute Wlan-Modul. Ansonsten unterscheidet sich der Raspberry Pi Zero nicht vom Pi Zero W. Bei unseren Tests haben wir uns auf die Bereiche der Temperatur- und Feuchtigkeitsmessung, die Übertragung eines Livestreams, so wie auf das Verwenden des Bluetoothmoduls beschränkt.
+Das Ziel dieses Projekts ist es herauszufinden, ob sich der Raspberry Pi 3B+ auf der NIBOBee durch einen Raspberry Pi Zero ersetzen lässt. Für den Vergleich haben wir einen Raspberry Pi Zero W verwendet. Das „W“ bezieht sich dabei auf das verbaute Wlan-Modul. Ansonsten unterscheidet sich der Raspberry Pi Zero nicht vom Pi Zero W. Bei unseren Tests haben wir uns auf die Bereiche der Temperatur- und Feuchtigkeitsmessung, die Übertragung eines Livestreams, so wie auf das Verwenden des Bluetoothmoduls beschränkt.
 
 +------------------------+--------------------------------------------------+-----------------------------------------+
 |                        |                 Raspberry Pi 3B+                 |           Raspberry Pi Zero W           |
@@ -212,7 +212,7 @@ Aus dem `Schaltplan <http://download.nicai-systems.com/nibo/nibobee_berry_schema
 
 .. image:: img/atmegapins.png
 
-Die Nibobee haben wir wie folgt programmiert.
+Die NIBOBee haben wir wie folgt programmiert.
 
 .. code-block:: C++
 
@@ -266,7 +266,7 @@ Wenn PD1 = 1 und PD0 = 1 fährt die Nibobee geradeaus. Wenn PD1 = 0 PD0 = 1 fäh
 
 .. image:: img/rasppins.png
 
-Mit dem Nibobee-Programm und den Eventzuständen im Hinterkopf, konnten wir nun ein Pythonscript zur Steuerung der Nibobee schreiben.
+Mit dem NIBOBee-Programm und den Eventzuständen im Hinterkopf konnten wir nun ein Pythonscript zur Steuerung der NIBOBee schreiben.
 			
 .. code-block:: python
 
@@ -316,9 +316,9 @@ Mit dem Nibobee-Programm und den Eventzuständen im Hinterkopf, konnten wir nun 
 			  
  GPIO.cleanup()
 	
-Und siehe da, es Funktiniert, die NIBOBee reagiert auf Tastendruck. Allerdings ist die Reichweite mit nur ungefähr 50cm sehr eingeschränkt. Daraus können wir schließen, dass die Rechweite des Bluetoothmodules zu gering ist für unser Vorhaben ist.
+Und siehe da, es Funktioniert, die NIBOBee reagiert auf Tastendruck. Allerdings ist die Reichweite mit nur ungefähr 50cm sehr eingeschränkt. Daraus können wir schließen, dass die Rechweite des Bluetoothmodules zu gering für unser Vorhaben ist.
 
-Da uns da nicht gereicht hat, mussten wir uns eine andere Lösung einfallen lassen. Also haben wir uns eine Bluetoothtastatur besorgt, die über einen eigenen Bluetoothadapter vefügt. Das Pythonscript für die umwandlung der Eingaben blieb fast unverändert. Nur die Eventzustände mussten mit bekannter Methodik neu erfasst werden.
+Da uns das nicht gereicht hat, mussten wir uns eine andere Lösung einfallen lassen. Also haben wir uns eine Bluetoothtastatur besorgt, die über einen eigenen Bluetoothadapter vefügt. Das Pythonscript für die umwandlung der Eingaben blieb fast unverändert. Nur die Eventzustände mussten mit bekannter Methodik neu erfasst werden.
 Nun konnten wir die NIBOBee mit W,A,D steuern und hatten eine Reichweite von 10m, auch durch Wände hindurch.
 	
 .. code-block:: python
@@ -389,7 +389,7 @@ z.B.
 
  unset id
  fi
- sudo python /home/pi/{Name des Pythonprogramms.py &
+ sudo python /home/pi/{Name des Pythonprogramms}.py &
  
 
 Die Scripte
@@ -453,7 +453,7 @@ Da nun aber nicht bei jedem Livestream auch die Updates mit installiert werden m
  
  print os.system('sh livestream.sh');
  
-Wie schon erwähnt, gibt es bei diesen Programmen kleine Fehler, die wie nicht behoben konnten. Im Endeffekt brauchten wir immer manuelle Eingaben, um den Stream zu starten.
+Wie schon erwähnt, gibt es bei diesen Programmen kleine Fehler, die wir nicht behoben konnten. Im Endeffekt brauchten wir immer manuelle Eingaben, um den Stream zu starten.
 
 Fazit
 -----
