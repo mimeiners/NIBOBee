@@ -124,7 +124,7 @@ Danach haben wir eine Datei mit der Endung .bat erstellt. Auch hier ist der Spei
  cd gstreamer\1.0\x86_64\bin
  start gst-launch-1.0 –e –v udpsrc port=5000 ! application/x-rtp, payload=96 ! rtpjitterbuffer ! rtph264depay ! avdec_h264 ! fpsdisplaysink sync=false text-overlay=false
   
-eingetragen warden. Bei Ausführung der Datei wird ein Fenster geöffnet, in dem der Livestream der Kamera angezeigt wird. 
+eingetragen werden. Bei Ausführung der Datei wird ein Fenster geöffnet, in dem der Livestream der Kamera angezeigt wird. 
 
 ACHTUNG: sollte GStreamer auf einer anderen Festplatte als der Systemfestplatte installiert werden, muss der Code zu
 
@@ -136,7 +136,7 @@ ACHTUNG: sollte GStreamer auf einer anderen Festplatte als der Systemfestplatte 
  
  start gst-launch-1.0 –e –v udpsrc port=5000 ! application/x-rtp, payload=96 ! rtpjitterbuffer ! rtph264depay ! avdec_h264 ! fpsdisplaysink sync=false text-overlay=false
   
-geändert warden, ansonsten kann GStreamer nicht gestartet werden und der Stream empfangen werden.
+geändert werden, ansonsten kann GStreamer nicht gestartet und der Stream empfangen werden.
 
 Fernsteuerung der NIBOBee
 -------------------------
@@ -170,8 +170,8 @@ Um zu überprüfen ob die Verbindung richtig funktioniert kann man diese Befehle
  cat /dev/input/event  	#als Event wird das Eingabegerät deiner Wahl angegeben (siehe ls/dev/input)
  
 
-Wenn alles geklappt hat müsste nun bei der Betätigung des Eingabegerätes Reihen von erst einmal sinnlosen Zeichen erscheinen. Um daraus etwas Verwendbares zu machen mussten wir nach einem Programm zum Kovertieren suchen.
-Bei unserer Suche sind wir dann auf die Pythonbibliothek `evdev <https://python-evdev.readthedocs.io/en/latest/usage.html>`_ gestoßen. Diese wandelt die Eingaben des JOYCON in Werte um, die wir dann an die NIBOBee übertragen konnten.
+Wenn alles geklappt hat müsste nun bei der Betätigung des Eingabegerätes Reihen von erst einmal sinnlosen Zeichen in der Konsole erscheinen. Um daraus etwas Verwendbares zu machen mussten wir nach einem Programm zum konvertieren suchen.
+Bei unserer Suche sind wir dann auf die Pythonbibliothek `evdev <https://python-evdev.readthedocs.io/en/latest/usage.html>`_ gestoßen. Diese wandelt die Eingaben des JOYCON in Werte um, die wir dann in Python verwenden konnten.
 
 .. code-block:: python
  
