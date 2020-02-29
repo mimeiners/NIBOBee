@@ -15,7 +15,9 @@ NIBOBee - eine elektronische Biene für die Nachhaltigkeit
    ./Kapitel_01_Einleitung.rst
    ./Kapitel_02_Loeten.rst
    ./Kapitel_03_ArduinoUno.rst
-   ./Kapitel_04_RaspberryPi_B+.rst
+   ./Kapitel_04_RaspberryPiBplus.rst
    ./Kapitel_05_RaspberryPi3.rst
    ./Kapitel_06_Rucksackplatine.rst
+   ./Kapitel_07_RaspberryPiZeroW.rst
+   ./Kapitel_08_CalliopeMini.rst
 
