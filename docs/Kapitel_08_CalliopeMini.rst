@@ -104,7 +104,7 @@ unrhythmisch klingt.
 
 Der selbe Programmcode wie er von OpenRoberta angezeigt werden kann:
 
-::
+.. code-block:: C++
 
    #define _GNU_SOURCE
 
@@ -225,61 +225,51 @@ Die wichtigsten Bestandteile der Robotereinheit sind die Räder, die
 beiden Inrarotsensoren und der Ultraschallsensor. Im Calli:bot-Paket ist
 der Calliope mini nicht enthalten.
 
-| Der Neupreis für den Calli:bot liegt bei 44,90€ (Quelle:Knotech.Shop,
-  Stand:02.01.2020). Der Zusammenbau ist simpel, da eine
-  Schritt-für-Schritt-Anleitung vorhanden ist. Es wird für den
-  Zusammenbau nur ein Schraubendreher benötigt. Hierdurch sollte der
-  Zusammenbau eines Calli:bots kein Problem darstellen. Das einzige
-  Problem hinsichtlich des Zusammenbaus bei Schülern könnte sein, dass
-  Kleinteile verloren gehen. Nach dem Zusammenbau ist aufgefallen, dass
-  der Ultraschallsensor nur über die Pins befestigt ist, welches ein
-  Problem darstellt, falls sich die Pins verbiegen oder beim Spielen mit
-  dem Calli:bot beziehungsweise der Lagerung des Calli:bots etwas gegen
-  den Ultraschallsensor drückt.
-| Ein weiterer Punkt der auffiel, ist das die Servo- und Power-Pins
-  keine Abdeckung besitzen. Daher können diese schnell verbogen werden,
-  was Funktionsstörungen auslösen könnte. Bei den Rädern fiel auf, dass
-  die Profile der Gummireifen in zwei unterschiedliche Richtungen
-  zeigen. Die Programmierung wird hierbei auch über die Webseite
-  open-roberta durchgeführt.
+Der Neupreis für den Calli:bot liegt bei 44,90€ (Quelle:Knotech.Shop,
+Stand:02.01.2020). Der Zusammenbau ist simpel, da eine
+Schritt-für-Schritt-Anleitung vorhanden ist. Es wird für den
+Zusammenbau nur ein Schraubendreher benötigt. Hierdurch sollte der
+Zusammenbau eines Calli:bots kein Problem darstellen. Das einzige
+Problem hinsichtlich des Zusammenbaus bei Schülern könnte sein, dass
+Kleinteile verloren gehen. Nach dem Zusammenbau ist aufgefallen, dass
+der Ultraschallsensor nur über die Pins befestigt ist, welches ein
+Problem darstellt, falls sich die Pins verbiegen oder beim Spielen mit
+dem Calli:bot beziehungsweise der Lagerung des Calli:bots etwas gegen
+den Ultraschallsensor drückt.
+
+Ein weiterer Punkt der auffiel, ist das die Servo- und Power-Pins
+keine Abdeckung besitzen. Daher können diese schnell verbogen werden,
+was Funktionsstörungen auslösen könnte. Bei den Rädern fiel auf, dass
+die Profile der Gummireifen in zwei unterschiedliche Richtungen
+zeigen. Die Programmierung wird hierbei auch über die Webseite
+open-roberta durchgeführt.
 
 .. figure:: ./img/CalliBot_schnitt.jpeg
    :alt: Der Calli:bot in seinen Einzelteilen
 
    Der Calli:bot in seinen Einzelteilen
 
+   
 Der Calli:bot fährt
 ~~~~~~~~~~~~~~~~~~~
 
-| Der Calli:bot kann vorwärs fahren, da an beiden hinteren Rädern
-  jeweils 2 Elektromotoren verbaut sind. Das Problem ist, dass der
-  Calli:bot bei dem Befehl geradeaus zu fahren eine Bogenlampe mit etwa
-  28° Abweichung fuhr. Der erste Verdacht war, dass der Calli:bot wegen
-  den unterschiedlichen Reifenprofilen die Bogenlampe fährt. Deswegen
-  wurden weitere Tests gemacht, um den Calli:bot gerade fahren zu
-  lassen. Der erste Testablauf war die Änderung des Radprofils. Das
-  Radprofil war standartmäßig ein Fischgrätenmuster in entgegengesetzte
-  Richtungen. Ein weiters Radprofil, welches getestet wurde, war ein
-  Geradliniges, mit mehreren Rillen nebeneinander. Dieses Radprofil
-  stammt von der NIBOBee, welcher mit besagtem Muster gerade fährt. Der
-  Calli:bot hatte nun eine Abweichung von 25° Grad von der idealen
-  Linie. Der letzte Versuchsteil zum Punkt Radprofil war es den
-  Calli:bot ohne Gummiüberzug fahren zu lassen. Dabei stellte sich
-  heraus, dass das Problem nicht am Radprofil lag, da der Calli:bot auch
-  ohne Reifengummi noch immer eine Bogenlampe mit etwa 17° Abweichung
-  fuhr. Durch diese Ergebnisse, wird der Fehler beim Antrieb vermutet.
-  Man kann im Programmcode die einzelnen Antriebe mit unterschiedlichen
-  Stärken einstellen. Nach mehrere Testdurchläufe des Calli:bots mit dem
-  Standart Radprofil,
-| stellte sich heraus, dass der recte Antrieb schneller ist als der
-  linke. Bei dieser Problematik fährt der Calli:bot eine Linkskurve. Das
-  bestmögliche Ergebnis stellt sich nur unter bestimmten
-  Vorraussetzungen für das Standart Radprofil ein, wenn die
-  Streckenlänge 2m beträgt und die Antriebsgeschwingkeiten angepasst
-  sind. Folgende Anpassungen müssen im Programm gemacht werden:
-| Der rechte Antrieb auf 41,5% und der linke Antrieb auf 50%
-  Antriebsgeschwindigkeit. Nach der Versuchslänge von 2m wird der
-  Calli:bot, wie vorher, seine Bogenlampe fahren.
+Der Calli:bot kann vorwärs fahren, da an beiden hinteren Rädern jeweils 2 Elektromotoren verbaut sind. Das Problem ist, dass der
+Calli:bot bei dem Befehl geradeaus zu fahren eine Bogenlampe mit etwa 28° Abweichung fuhr. Der erste Verdacht war, dass der Calli:bot wegen
+den unterschiedlichen Reifenprofilen die Bogenlampe fährt. Deswegen wurden weitere Tests gemacht, um den Calli:bot gerade fahren zu
+lassen. Der erste Testablauf war die Änderung des Radprofils. Das Radprofil war standartmäßig ein Fischgrätenmuster in entgegengesetzte
+Richtungen. Ein weiters Radprofil, welches getestet wurde, war ein Geradliniges, mit mehreren Rillen nebeneinander. Dieses Radprofil
+stammt von der NIBOBee, welcher mit besagtem Muster gerade fährt. Der Calli:bot hatte nun eine Abweichung von 25° Grad von der idealen
+Linie. Der letzte Versuchsteil zum Punkt Radprofil war es den Calli:bot ohne Gummiüberzug fahren zu lassen. Dabei stellte sich
+heraus, dass das Problem nicht am Radprofil lag, da der Calli:bot auch ohne Reifengummi noch immer eine Bogenlampe mit etwa 17° Abweichung
+fuhr. Durch diese Ergebnisse, wird der Fehler beim Antrieb vermutet. Man kann im Programmcode die einzelnen Antriebe mit unterschiedlichen
+Stärken einstellen. Nach mehrere Testdurchläufe des Calli:bots mit dem Standart Radprofil, stellte sich heraus, dass der
+recte Antrieb schneller ist als der linke. Bei dieser Problematik fährt der Calli:bot eine Linkskurve. Das
+bestmögliche Ergebnis stellt sich nur unter bestimmten Vorraussetzungen für das Standart Radprofil ein, wenn die
+Streckenlänge 2m beträgt und die Antriebsgeschwingkeiten angepasst sind.
+
+Folgende Anpassungen müssen im Programm gemacht werden: Der rechte Antrieb auf 41,5% und der linke Antrieb auf 50%
+Antriebsgeschwindigkeit. Nach der Versuchslänge von 2m wird der Calli:bot, wie vorher, seine Bogenlampe fahren.
+
 
 Die Abstandsmessung mithilfe des Ultraschallsensors
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -361,6 +351,7 @@ erkennen kann in welche Richtung er weiterfahren soll.
 
    Liniensensorik
 
+   
 Ausblick in die Zukunft
 -----------------------
 
@@ -371,6 +362,7 @@ des Mikrofons und die Anbindung von externen Sensoren über die vorhanden
 Schnittstellen. Es wurde auch nicht untersucht inwiefern andere, auf dem
 Markt erhältliche, Plattformen als mögliche Alternative zur Verfügung
 stehen.
+
 
 Fazit
 -----
