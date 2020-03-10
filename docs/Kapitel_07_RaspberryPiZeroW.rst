@@ -1,5 +1,6 @@
 Raspberry Pi Zero W
 ===================
+*Autoren: Eduard Funkner, Keno Janssen, Miko Kranich, Mohammad Najm*
 
 Das Ziel
 --------
