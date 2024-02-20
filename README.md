@@ -49,6 +49,6 @@ LEGO-Baukastenprinzips kann die elektronische Biene nach Belieben und
 Interesse erweitert werden.
 
 ## Videobeitrag
-- [StahlTV Seite](https://www.stahltv.de/themen/corporate_social_responsibility/vordenker-projekt_in_der_hochschule_bremen/)
+- [StahlTV Seite](https://www.youtube.com/@ArcelorMittalBremen)
 
 - [Video-Link](https://youtu.be/TjsIBCnP00w)
